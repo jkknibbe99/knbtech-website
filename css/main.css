@@ -111,10 +111,6 @@ p {
 .hover-underline:hover::before {
     transform: scaleX(1); }
 
-.current-page {
-    color: var(--accent-color);
-}
-
 #logo-bg {
     position: fixed;
     top: 0;
