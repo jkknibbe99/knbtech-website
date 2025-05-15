@@ -4,55 +4,103 @@
     <title>KNBTech</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
 </head>
 
 <body>
 
+    <div id="gradient-bg"></div>
+
     <!-- Navbar -->
-    <div id="navbar" class="d-flex align-items-center">
+    <div id="navbar" class="d-flex justify-content-between align-items-center">
         <div id="navbar-overlay"></div>
-        <img id="logo" src="images/logo.png" alt="KNBTech Logo">
+        <img id="navbar-logo" src="images/knbtech-logo-notech.png" alt="KNBTech Logo">
         <div class="flex-grow-1 d-flex justify-content-center">
-            <a href="/">
+            <a href="#top">
                 <button>
                     <div class="hover-underline current-page">Home</div>
                 </button>
             </a>
-            <a href="/about">
+            <a href="#about">
                 <button>
                     <div class="hover-underline">About</div>
                 </button>
             </a>
-            <a href="/contact">
+            <a href="#contact">
                 <button>
                     <div class="hover-underline">Contact</div>
                 </button>
             </a>
         </div>
+        <!-- <button class="btn hover-underline">Contact</button> -->
     </div>
+
+    <div id="top"></div>
 
     <div id="logo-bg" class="d-flex justify-content-center align-items-center">
-        <div id="logo-bg-spacer"></div>
-        <img src="images/logo.png" alt="KNBTech Logo">
+        <img src="images/knbtech-logo.png" alt="KNBTech Logo">
+        
     </div>
 
-    <div id="welcome">
-        <div class="d-flex justify-content-center">
-            <div>
-                <h1>Welcome to <br><span class="knb" style="color: var(--accent-color)">KNB</span>Tech</h1>
-                <div>
-                    <button id="projects-btn" class="btn btn-lg shadow-lg">Projects</button>
+    <div id="home-arrow">
+        <a href="#about"><button class="btn arrow-btn-down"></button></a>
+    </div>
+
+    <div id="about" class="section">
+        <div class="my-card">
+            <h1 class="my-card-header">About</h1>
+            <p>
+                I'm a designer and developer with a background in computer science and a passion for digital development and fabrication, creating functional, purposeful products. From CAD modeling and 3D printing to electronics and software, I bring ideas to life with precision and creativity.
+            </p>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <div class="my-card">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="my-card-header">Contact</h1>
+                        <p>Want to collaborate or have a project idea? Use this form to connect with me</p>
+                    </div>
+                    <form id="contact-form" class="col" method="POST" target="hidden_iframe" action="https://docs.google.com/forms/d/e/1FAIpQLSdyIT2Q30dOsxirRTuXPYAmtXmRJm0XenPu7r_PDzOHBx37CA/formResponse">
+                        <div class="mb-3">
+                            <label for="contact-form-email" class="form-label">Email address</label>
+                            <input type="email" name="entry.1886105621" class="form-control" id="contact-form-email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-form-msg" class="form-label">Message</label>
+                            <textarea name="entry.1794970763" class="form-control" id="contact-form-msg" rows="3" placeholder="Enter your message"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn" type="submit" id="contact-form-submit-btn">Submit</button>
+                        </div>
+                    </form>
+                    <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe>
+                    
                 </div>
             </div>
-            <div id="welcome-spacer"></div>
         </div>
-        
+
+        <!-- contact form toast -->
+        <div class="position-fixed p-3 bottom-0 start-50 translate-middle-x">
+            <div id="contact-form-toast" class="toast fade hide">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Form submitted
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

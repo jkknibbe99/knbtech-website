@@ -2,17 +2,42 @@
     --navbar-height: 80px;
     --bg-color: rgb(26, 26, 26);
     --accent-color: #17967a;
+    --accent-color-dark: #0b3b31;
 }
 
 html * {
     font-family: "Zain", sans-serif !important;
     font-optical-sizing: auto !important;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal !important;
+    scroll-behavior: smooth;
+    
 }
 
 body {
     background-color: var(--bg-color);
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 30px;
+}
+
+#gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0.3turn, var(--bg-color), var(--bg-color), var(--accent-color-dark));
+    z-index: -2;
 }
 
 #navbar {
@@ -21,7 +46,8 @@ body {
     width: 100%;
     position: fixed;
     left: 0;
-    top:0;
+    top: calc(-1* var(--navbar-height));
+    transition: top 1s;
     z-index: 1000;
 }
 
@@ -35,7 +61,7 @@ body {
     opacity: 50%;
 }
 
-#logo {
+#navbar-logo {
     position: absolute;
     height: 60%;
     padding-left: 20px;
@@ -46,7 +72,7 @@ body {
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -56,10 +82,11 @@ body {
 }
 
 .hover-underline {
-    /* font-size: 2rem; */
     color: #ffffff;
     position: relative;
-    display: inline-block; }
+    display: inline-block; 
+    font-weight: 700;
+}
 
 .hover-underline::after,
 .hover-underline::before {
@@ -86,53 +113,30 @@ body {
 
 .current-page {
     color: var(--accent-color);
-    font-weight: 700;
 }
 
 #logo-bg {
     position: fixed;
-    top: var(--navbar-height);
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - var(--navbar-height));
-    /* filter: blur(5px) brightness(50%); */
+    height: 100vh;
+    filter: blur(100px) brightness(0);
     z-index: -1;
 }
 
 #logo-bg img {
-    height: 50%;
+    max-height: 40%;
+    max-width: 100%;
+    margin-bottom: 10%;
 }
 
-#logo-bg-spacer {
-    width: 30%;
-}
-
-#welcome {
-    margin-top: var(--navbar-height);
-    padding-top: 100px;
-    color: white;
-    height: calc(100vh - var(--navbar-height));
-}
-
-#welcome h1 {
-    font-size: 120px;
-    margin: 0 !important;
-    text-shadow: black 1px 0 15px;
-}
-
-#welcome .knb {
-    color: var(--accent-color);
-}
-
-#projects-btn {
-    margin: 50px;
-    margin-left: 120px;
-    font-size: 30px;
-}
-
-.btn {
+.btn, .toast {
     background-color: var(--accent-color);
     color: white;
+    border-radius: 15px;
+    padding-top: 10px;
+    font-size: 25px;;
 }
 
 .btn:hover {
@@ -140,8 +144,64 @@ body {
     transition: filter .2s;
 }
 
-#welcome-spacer {
-    width: 20%;
+.arrow-btn-down {
+    width: 100px;
+    height: 30px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-radius: 0;
+}
+
+.arrow-btn-down:hover {
+    width: 120px;
+    height: 40px;
+    transition: width .2s, height.2s, brightness .2s;
+}
+
+#home-arrow {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    padding-top: 110vh;
+    transition: padding-top 1s;
+}
+
+.section {
+    height: 100vh;
+    width: 80%;
+    max-width: 1500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    
+}
+
+.my-card {
+    background-color: rgba(31, 50, 46, 0.5);
+    border: none !important;
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.my-card-header {
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+#contact-form {
+    font-size: 30px;
+}
+
+#contact-form-toast {
+    color: black;
+    max-width: 1000px;
+}
+
+.toast .btn-close {
+    font-size: 15px;
 }
 
 /* for mobile */
@@ -149,10 +209,13 @@ body {
     #welcome {
         text-align: center;
     }
-    #logo-bg-spacer, #welcome-spacer {
+    #navbar-logo {
+        visibility: hidden;
         width: 0;
+        margin: 0;
+        padding: 0;
     }
-    #projects-btn {
-        margin-left: 50px;
+    p {
+        font-size: 20px;   
     }
 }
