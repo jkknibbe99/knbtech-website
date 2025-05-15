@@ -1,6 +1,7 @@
 :root {
     --navbar-height: 80px;
     --bg-color: rgb(26, 26, 26);
+    --accent-color: #17967a;
 }
 
 html * {
@@ -66,7 +67,7 @@ body {
         position: absolute;
         width: 100%;
         height: 2px;
-        background: #17967a;
+        background: var(--accent-color);
         bottom: -5px;
         left: 0;
         transform: scaleX(0);
@@ -84,7 +85,7 @@ body {
     transform: scaleX(1); }
 
 .current-page {
-    color: #17967a;
+    color: var(--accent-color);
     font-weight: 700;
 }
 
@@ -94,12 +95,16 @@ body {
     left: 0;
     width: 100%;
     height: calc(100vh - var(--navbar-height));
-    filter: blur(5px) brightness(50%);
+    /* filter: blur(5px) brightness(50%); */
     z-index: -1;
 }
 
 #logo-bg img {
     height: 50%;
+}
+
+#logo-bg-spacer {
+    width: 30%;
 }
 
 #welcome {
@@ -112,4 +117,42 @@ body {
 #welcome h1 {
     font-size: 120px;
     margin: 0 !important;
+    text-shadow: black 1px 0 15px;
+}
+
+#welcome .knb {
+    color: var(--accent-color);
+}
+
+#projects-btn {
+    margin: 50px;
+    margin-left: 120px;
+    font-size: 30px;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn:hover {
+    filter: brightness(80%);
+    transition: filter .2s;
+}
+
+#welcome-spacer {
+    width: 20%;
+}
+
+/* for mobile */
+@media only screen and (max-width: 768px) {
+    #welcome {
+        text-align: center;
+    }
+    #logo-bg-spacer, #welcome-spacer {
+        width: 0;
+    }
+    #projects-btn {
+        margin-left: 50px;
+    }
 }
