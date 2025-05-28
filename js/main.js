@@ -46,14 +46,10 @@ window.onload = () => {
         }
     });
     
-    // contact form submit toast
-    document.getElementById('contact-form-submit-btn').onclick = () => {
-        contact_form_toast.show();
-    }
 
     // Contact form submission
     const contact_form = document.querySelector("#contact-form");
-    contact_form.addEventListener("submit", function (e) {
+    contact_form.addEventListener("submit", async function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
         let data = {};
@@ -61,12 +57,17 @@ window.onload = () => {
             data[elem.name] = elem.value;
         }
         contact_form.reset();
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSdyIT2Q30dOsxirRTuXPYAmtXmRJm0XenPu7r_PDzOHBx37CA/formResponse', {
-            method: "POST",
-            body: new URLSearchParams(data),
-            headers: {
-                "Content-type": "application/x-www-form-urlencoded"
-            }
-        }).then((response) => contact_form_toast.show());
+        try {
+            const resp = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdyIT2Q30dOsxirRTuXPYAmtXmRJm0XenPu7r_PDzOHBx37CA/formResponse', {
+                method: "POST",
+                body: new URLSearchParams(data),
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded"
+                }
+            })
+            contact_form_toast.show()
+        } catch (error) {
+            contact_form_toast.show()
+        }
     });
 }
