@@ -187,6 +187,93 @@ p {
     margin-bottom: 20px;
 }
 
+/* keep the global Zain font rule from breaking Font Awesome icons */
+html .fa {
+    font-family: FontAwesome !important;
+}
+
+#projects {
+    height: auto;
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
+}
+
+.project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(26, 26, 26, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(23, 150, 122, 0.3);
+}
+
+.project-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* show the whole image (fit to height) instead of cropping it */
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.project-img-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0.3turn, var(--accent-color-dark), var(--accent-color));
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.project-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-body h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.project-body p {
+    font-size: 22px;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.project-link {
+    margin-top: 15px;
+    align-self: flex-start;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.project-link:hover,
+.project-link:focus {
+    color: #ffffff;
+}
+
 #contact-form {
     font-size: 30px;
 }
@@ -212,6 +299,20 @@ p {
         padding: 0;
     }
     p {
-        font-size: 20px;   
+        font-size: 20px;
     }
+    #navbar button {
+        font-size: 22px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.coffee-btn {
+    padding: 10px 24px 6px;
+    margin-top: 5px;
+}
+
+.coffee-btn:hover {
+    color: white;
 }
