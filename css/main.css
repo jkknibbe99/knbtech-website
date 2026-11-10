@@ -18,16 +18,17 @@ body {
     background-color: var(--bg-color);
 }
 
+/* fluid type: scales with the screen width between a min and max size */
 h1 {
-    font-size: 5rem;
+    font-size: clamp(2.75rem, 11vw, 5rem);
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 7vw, 3rem);
 }
 
 p {
-    font-size: 30px;
+    font-size: clamp(19px, 4.8vw, 30px);
 }
 
 #gradient-bg {
@@ -162,7 +163,9 @@ p {
 }
 
 .section {
-    height: 100vh;
+    /* grow taller than the screen when content needs it instead of overflowing */
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
     width: 80%;
     max-width: 1500px;
     margin: auto;
@@ -190,12 +193,6 @@ p {
 /* keep the global Zain font rule from breaking Font Awesome icons */
 html .fa {
     font-family: FontAwesome !important;
-}
-
-#projects {
-    height: auto;
-    min-height: 100vh;
-    padding-top: var(--navbar-height);
 }
 
 .project-card {
@@ -275,7 +272,7 @@ html .fa {
 }
 
 #contact-form {
-    font-size: 30px;
+    font-size: clamp(20px, 5vw, 30px);
 }
 
 #contact-form-toast {
@@ -298,8 +295,28 @@ html .fa {
         margin: 0;
         padding: 0;
     }
-    p {
-        font-size: 20px;
+    .section {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .my-card {
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .my-card .container {
+        padding: 0;
+    }
+    .my-card-header {
+        overflow-wrap: anywhere;
+    }
+    .project-body h2 {
+        font-size: 1.9rem;
+    }
+    .project-body p,
+    .project-link {
+        font-size: 19px;
     }
     #navbar button {
         font-size: 22px;
@@ -308,11 +325,21 @@ html .fa {
     }
 }
 
-.coffee-btn {
-    padding: 10px 24px 6px;
-    margin-top: 5px;
+/* small phones */
+@media only screen and (max-width: 400px) {
+    #navbar button {
+        font-size: 19px;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 }
 
-.coffee-btn:hover {
+.coffee-link {
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.coffee-link:hover {
     color: white;
 }
